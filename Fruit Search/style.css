@@ -1,0 +1,47 @@
+* {
+  box-sizing: border-box;
+}
+
+input:focus {
+ background-color: rgb(236, 222, 96);
+}
+
+body {
+  background: linear-gradient(to right, yellow, orange) fixed;
+}
+
+input {
+  width: 90%;
+  border-radius: 10px;
+  height: 20%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #ccc;
+}
+
+.search-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 200px;
+  text-align: center;
+}
+.search-container input,
+.search-container .suggestions {
+  text-align: left;
+  font-size: medium;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.search-container input {
+  background-color: rgb(238, 240, 112);
+}
+
+ul li {
+  cursor: pointer;
+}
+
+ul li:hover {
+  background-color: rgb(175, 167, 121);
+}
