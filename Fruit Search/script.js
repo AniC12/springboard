@@ -1,4 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 	const input = document.querySelector('#fruit');
 	const suggestions = document.querySelector('.suggestions ul');
 
@@ -12,12 +12,13 @@ document.addEventListener("DOMContentLoaded", function() {
 			return results;
 		}
 
-		for (let element of fruit) {
+		/*for (let element of fruit) {
 			let lowElement = element.toLowerCase();
 			if (lowElement.includes(lowerStr)) {
 				results.push(element);
 			}
-		}
+		}*/
+		results = fruit.filter(element => element.toLocaleLowerCase().includes(lowerStr));
 		return results;
 	}
 
@@ -29,13 +30,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
 	function showSuggestions(results, inputVal) {
 		suggestions.innerHTML = "";
-			for (let i = 0; i < results.length; i++) {
+		/*for (let i = 0; i < results.length; i++) {
 			const element = results[i];
 			const li = document.createElement("li");
 			let index = element.toLowerCase().indexOf(inputVal.toLowerCase());
 			li.innerHTML = element.substring(0, index) + "<b>" + element.substring(index, index + inputVal.length) + "</b>" + element.substring(index + inputVal.length);
 			suggestions.appendChild(li);
-		}
+		}*/
+		results.forEach(element => {
+			const li = document.createElement("li");
+			let index = element.toLowerCase().indexOf(inputVal.toLowerCase());
+			li.innerHTML = element.substring(0, index) + "<b>" + element.substring(index, index + inputVal.length) + "</b>" + element.substring(index + inputVal.length);
+			suggestions.appendChild(li);
+		});
 	}
 
 	function useSuggestion(e) {
