@@ -1,0 +1,13 @@
+#moviesUL {
+    list-style-type: none;
+}
+
+.movieItem {
+    margin-bottom: 10px;
+
+}
+
+.movieItem button {
+    margin-left: 10px;
+}
+
