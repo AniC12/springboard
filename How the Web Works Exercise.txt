@@ -1,0 +1,31 @@
+Part One: Solidify Terminology
+1. What is HTTP?
+	Hypertext Transfer Protocol is used to send and receive requests 	and responses between web servers and clients.
+2. What is a URL?
+	Uniform Resource Locator is a string of characters that provides a way to identify and locate a resource on the internet.
+3. What is DNS?
+	Short for Domain Name System, this is a system that takes human-readable URLs and converts them into IP addresses.
+4. What is a query string?
+	A query string is a part of a URL that contains data to be passed to a web server as a series of key-value pairs. The query string is appended to the end of the URL after a question mark (?), and each key-value pair is separated by an ampersand (&).
+5. What are two HTTP verbs and how are they different?
+	Two commonly used HTTP verbs are GET and POST. GET is used to request a resource from a web server. POST is used to submit data to a web server to create or update a resource. 
+6. What is an HTTP request?
+	An HTTP request is a message sent by a client to a web server, requesting that the server perform a certain action or provide a certain resource.
+7. What is an HTTP response?
+	An HTTP response is a message sent by a web server to a client in response to an HTTP request. It contains the status of the requested resource or action, as well as any data or resources that are returned to the client.
+8. What is an HTTP header? Give a couple examples of request and response headers you have seen.
+	Headers provide additional information about the request or the response. Here are some examples:
+- Request headers: User-Agent, Accept, Cookie, Authorization
+- Response headers: Content-Type, Location, Set-Cookie, Cache-Control
+9. What are the processes that happen when you type “http://somesite.com/some/page.html” into a browser?
+	1. The browser sends a DNS query to resolve the domain name "somesite.com" into an IP address.
+	2. The browser sends an HTTP request to the server for the resource located at "/some/page.html" on the somesite.com domain.
+	3. The server receives the HTTP request, processes it, and generates an HTTP response that includes the requested resource.
+	4. The server sends the HTTP response containing the requested resource back to the browser
+	5. The browser receives the HTTP response and renders the content of the page, including any HTML, CSS, JavaScript, and other resources included in the response.
+
+Part Two: Practice Tools
+1. Using curl, make a GET request to the icanhazdadjoke.com API to find all jokes involving the word “pirate”.
+	curl -H "Accept: text/plain" "https://icanhazdadjoke.com/search?term=pirate" 
+2. Use dig to find what the IP address is for icanhazdadjoke.com
+	dig icanhazdadjoke.com +short
