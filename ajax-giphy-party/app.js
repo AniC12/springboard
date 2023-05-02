@@ -4,11 +4,11 @@ let gifArea = $("#gif-area");
 let input = $("#gif-search");
 
 function addGif(res) {
-    let numResults = res.data.length;
+    let numResults = res.data.data.length;
     if (numResults) {
         let randomIdx = Math.floor(Math.random() * numResults);
         let newCol = $("<div>");
-        let newGif = $("<img>", {src: res.data[randomIdx].images.original.url});
+        let newGif = $("<img>", {src: res.data.data[randomIdx].images.original.url});
         newCol.append(newGif);
         gifArea.append(newCol);
     }
