@@ -25,8 +25,7 @@ class Story {
   
   getHostName() {
     let url = new URL(this.url);
-    let hostname = url.hostname;
-    return hostname;
+    return url.hostname;
   }
 }
 
@@ -55,13 +54,13 @@ class StoryList {
     //  instance method?
 
     // query the /stories endpoint (no auth required)
-    const response = await axios({
+    const {data} = await axios({
       url: `${BASE_URL}/stories`,
       method: "GET",
     });
 
     // turn plain old story objects from API into instances of Story class
-    const stories = response.data.stories.map(story => new Story(story));
+    const stories = data.stories.map(story => new Story(story));
 
     // build an instance of our own class using the new array of stories
     return new StoryList(stories);
@@ -91,10 +90,9 @@ class StoryList {
 
   
   async removeStory(user, storyId) {
-    const token = user.loginToken;
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,
-      data: { token: token },
+      data: { token: user.loginToken},
       method: "DELETE",
     });
 

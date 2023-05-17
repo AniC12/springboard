@@ -27,7 +27,6 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
   const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
-        
         ${showStar ? getStarHTML(story, currentUser) : ""}
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
@@ -39,7 +38,6 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
         <small class="story-user">posted by ${story.username}</small>
         ${showDeleteBtn ? getDeleteBtn() : ""}
       </li>
-      <hr>
     `);
 }
 
