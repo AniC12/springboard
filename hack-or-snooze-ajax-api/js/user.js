@@ -106,7 +106,7 @@ function saveUserCredentialsInLocalStorage() {
  * - update nav bar options for logged-in user
  * - generate the user profile part of the page
  */
-//edeted by me
+
 function updateUIOnUserLogin() {
   console.debug("updateUIOnUserLogin");
 
@@ -119,7 +119,7 @@ function updateUIOnUserLogin() {
   generateUserProfile();
 }
 
-//by me
+
 function generateUserProfile() {
   console.debug("generateUserProfile");
 

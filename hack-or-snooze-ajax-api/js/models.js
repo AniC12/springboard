@@ -22,7 +22,7 @@ class Story {
   }
 
   /** Parses hostname out of URL and returns it. */
-  // By me
+  
   getHostName() {
     let url = new URL(this.url);
     let hostname = url.hostname;
@@ -74,7 +74,6 @@ class StoryList {
    * Returns the new Story instance
    */
 
-    //by me
   async addStory(user, {title, author, url}) {
     const token = user.loginToken;
     const response = await axios({
@@ -90,12 +89,12 @@ class StoryList {
     return story;
   }
 
-  //by me
+  
   async removeStory(user, storyId) {
     const token = user.loginToken;
     await axios({
       url: `${BASE_URL}/stories/${storyId}`,
-      data: { token: user.loginToken },
+      data: { token: token },
       method: "DELETE",
     });
 
@@ -221,7 +220,7 @@ class User {
     }
   }
 
-  //by me
+  
   async addFavorite(story) {
     this.favorites.push(story);
     await axios({
@@ -231,7 +230,7 @@ class User {
     });
   }
 
-  //by me
+  
   async removeFavorite(story) {
     this.favorites = this.favorites.filter(s => s.storyId !== story.storyId);
     await axios({
@@ -241,7 +240,7 @@ class User {
     });
   }
 
-  //by me
+  
   isFavorite(story) {
     return this.favorites.some(s => (s.storyId === story.storyId));
   }

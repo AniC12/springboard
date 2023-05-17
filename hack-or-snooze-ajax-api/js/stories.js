@@ -19,11 +19,12 @@ async function getAndShowStoriesOnStart() {
  * Returns the markup for the story.
  */
 
-// edited by me
+
 function generateStoryMarkup(story, showDeleteBtn = false) {
   console.debug("generateStoryMarkup");
   const showStar = Boolean(currentUser);
 
+  const hostName = story.getHostName();
   return $(`
       <li id="${story.storyId}">
         
@@ -31,7 +32,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
         <a href="${story.url}" target="a_blank" class="story-link">
           ${story.title}
         </a>
-        <small class="story-hostname">(${story.getHostName()})</small>
+        <small class="story-hostname">(${hostName})</small>
         <br>
         <small class="story-author">by ${story.author}</small>
         <br>
@@ -42,7 +43,7 @@ function generateStoryMarkup(story, showDeleteBtn = false) {
     `);
 }
 
-//by me
+
 function getStarHTML(story, user) {
   const starType = user.isFavorite(story) ? "fas" : "far";
   return `
@@ -52,7 +53,7 @@ function getStarHTML(story, user) {
 }
 
 
-//by me
+
 function getDeleteBtn() {
   return `<button type="submit" class="delete-btn">Delete</button>`;
 }
@@ -73,7 +74,7 @@ function putStoriesOnPage() {
   $allStoriesList.show();
 }
 
-//by me
+
 async function deleteStory(evt) {
   console.debug("deleteStory");
 
@@ -87,7 +88,7 @@ $myStories.on("click", ".delete-btn", deleteStory);
 /* Submit new story form */
 
 
-//by me
+
 async function submitStory(evt) {
   console.debug("submitNewStory");
   evt.preventDefault();
@@ -104,12 +105,13 @@ async function submitStory(evt) {
   $allStoriesList.prepend($story);
 
   $storySubmit.hide();
-  $storySubmit.reset();
+  $storySubmit.trigger("reset");
 }
 
 $storySubmit.on("submit", submitStory);
 
-//by me
+
+
 function putUserStoriesOnPage() {
   console.debug("putUserStoriesOnPage");
 
@@ -118,7 +120,6 @@ function putUserStoriesOnPage() {
   if (currentUser.ownStories.length === 0) {
     $myStories.append("<h5>No stories added by user yet!</h5>");
   } else {
-    // loop through all of users stories and generate HTML for them
     for (let story of currentUser.ownStories) {
       let $story = generateStoryMarkup(story, true);
       $myStories.append($story);
@@ -129,7 +130,7 @@ function putUserStoriesOnPage() {
 }
 
 
-//by me
+
 function putFavoritesListOnPage() {
   console.debug("putFavoritesListOnPage");
 
@@ -146,7 +147,7 @@ function putFavoritesListOnPage() {
   $favoritedStories.show();
 }
 
-//by me
+
 async function toggleStoryFavorite(evt) {
   console.debug("toggleStoryFavorite");
 
