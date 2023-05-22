@@ -13,3 +13,20 @@ def find_the_duplicate(nums):
         >>> find_the_duplicate([2, 1, 3, 4]) is None
         True
     """
+    dictionary = counter_of_each(nums)
+    for (num, count) in dictionary.items():
+        if count > 1:
+            return num
+    return None    
+
+
+def counter_of_each(nums):
+    count = {}
+    for n in nums:
+        count[n] = count.get(n, 0) + 1
+    return count    
+
+
+print(find_the_duplicate([1, 2, 1, 4, 3, 12]))
+print(find_the_duplicate([6, 1, 9, 5, 3, 4, 9]))
+print(find_the_duplicate([2, 1, 3, 4]))
