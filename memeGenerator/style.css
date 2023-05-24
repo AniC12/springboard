@@ -1,0 +1,99 @@
+h1 {
+    text-align: center;
+}
+h5 {
+    text-align: center;
+}
+
+form {
+    background-color: lightblue;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    font-size: large;
+}
+
+li {
+    padding-bottom: 2%;
+    font-weight: bold;
+}
+
+li input {
+    width: 75%;
+    height: 40px;
+    margin-left: 5%;
+    border-radius: 8px;
+    font-size: medium;
+}
+
+#bottom-text {
+    margin-left: 2.5%;
+}
+
+.meme-div {
+    position: relative;
+    width: 33%;
+    float: left;
+}
+
+.meme-img {
+    width: 100%;
+}
+
+.img-toptext {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+    color: rgb(0, 0, 0);
+    font-family: fantasy;
+}
+
+.img-bottext {
+    position: absolute;
+    bottom: 3%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: xx-large;
+    font-family: fantasy;
+}
+
+#sub-button {
+    margin-left: 80%;
+    font-size: x-large;
+    padding: 10px 24px;
+    background-color: dodgerblue;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    border: 0cm;
+    border-radius: 8px;
+}
+
+.remove-btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    padding: 15px 25px;
+    font-size: 36px;
+    text-align: center;
+    outline: none;
+    color: #696767;
+    background-color: #fbfcfb;
+    border: none;
+    border-radius: 15px;
+    opacity: 0;
+}
+
+.remove-btn:hover {
+    background-color: #263526;
+    color: white;
+    opacity: 0.5;
+}
