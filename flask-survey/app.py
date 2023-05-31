@@ -1,8 +1,6 @@
-from flask import Flask, request, render_template,  redirect, flash
+from flask import Flask, request, render_template,  redirect, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
 from surveys import satisfaction_survey as survey
-
-responses = []
 
 app = Flask(__name__)
 
@@ -17,16 +15,24 @@ def show_start():
 
     return render_template("start_page.html", survey=survey)
 
+@app.route('/begin', methods=["POST"])
+def begin_survey():
+
+    session['responses'] = []
+
+    return redirect("/questions/0")
+
 
 @app.route('/questions/<int:quest_index>')
 def show_question(quest_index):
     "Shows current question"
 
-    if quest_index != len(responses):
+    if quest_index != len(session['responses']):
        flash("You are trying to access an invalid question")
-       return redirect(f'/questions/{len(responses)}')
+       r = session['responses']
+       return redirect(f'/questions/{len(r)}')
     
-    if len(responses) == len(survey.questions):
+    if len(session['responses']) == len(survey.questions):
         return redirect("/end")
     
     question = survey.questions[quest_index]
@@ -38,9 +44,12 @@ def get_answer():
     "Handling Answers"
 
     choice = request.form["answer"]
-    responses.append(choice)
     
-    return redirect(f'/questions/{len(responses)}')
+    r = session['responses']
+    r.append(choice)
+    session['responses'] = r
+    
+    return redirect(f'/questions/{len(r)}')
 
 
 @app.route('/end')
