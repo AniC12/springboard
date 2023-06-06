@@ -31,9 +31,4 @@ function findRotatedIndex(array, num) {
     return -1;
 }
 
-console.log(findRotatedIndex([3, 4, 1, 2], 4))
-console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 8))
-console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3], 3))
-console.log(findRotatedIndex([37, 44, 66, 102, 10, 22], 14))
-console.log(findRotatedIndex([6, 7, 8, 9, 1, 2, 3, 4], 12))
-//module.exports = findRotatedIndex
+module.exports = findRotatedIndex

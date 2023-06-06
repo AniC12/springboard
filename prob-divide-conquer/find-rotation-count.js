@@ -22,10 +22,6 @@ function findRotationCount(array) {
     return midIdx;
 }
 
-console.log(findRotationCount([15, 18, 2, 3, 6, 12]));
-console.log(findRotationCount([7, 9, 11, 12, 5]));
-console.log(findRotationCount([7, 9, 11, 12, 15]));
-console.log(findRotationCount([18, 2, 3, 6, 12]));
 
 
-//module.exports = findRotationCount
+module.exports = findRotationCount

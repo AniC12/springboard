@@ -24,12 +24,5 @@ function findFloor(array, val) {
    
 }
 
-console.log(findFloor([1, 2, 8, 10, 10, 12, 19], 9))
-console.log(findFloor([1, 2, 8, 10, 10, 12, 19], 20))
-console.log(findFloor([1, 2, 8, 10, 10, 12, 19], 0))
-console.log(findFloor([1, 2, 8, 10, 10, 12], 4))
 
-
-
-
-//module.exports = findFloor
+module.exports = findFloor

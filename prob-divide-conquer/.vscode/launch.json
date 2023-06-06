@@ -10,7 +10,7 @@
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${workspaceFolder}\\find-rotation-count.js"
+            "program": "${workspaceFolder}\\sorted-frequency.js"
         }
     ]
 }
