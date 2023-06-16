@@ -1,0 +1,31 @@
+Doctor
+
+doctor_id (Primary Key)
+doctor_name
+specialization
+contact_info
+---------------------------------------------------------------
+Patient
+
+patient_id (Primary Key)
+patient_name
+date_of_birth
+contact_info
+--------------------------------------------------------------
+Visit
+
+visit_id (Primary Key)
+doctor_id (Foreign Key referencing Doctor table)
+patient_id (Foreign Key referencing Patient table)
+visit_date
+--------------------------------------------------------------
+Disease
+
+disease_id (Primary Key)
+disease_name
+--------------------------------------------------------------
+Diagnosis
+
+diagnosis_id (Primary Key)
+visit_id (Foreign Key referencing Visit table)
+disease_id (Foreign Key referencing Disease table)

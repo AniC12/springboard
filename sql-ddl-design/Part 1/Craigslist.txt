@@ -1,0 +1,25 @@
+Region
+
+region_id (Primary Key)
+region_name
+----------------------------------------------------------------------
+User
+
+user_id (Primary Key)
+username
+preferred_region_id (Foreign Key referencing Region table)
+----------------------------------------------------------------------
+Post
+
+post_id (Primary Key)
+title
+text
+user_id (Foreign Key referencing User table)
+location
+region_id (Foreign Key referencing Region table)
+category_id (Foreign Key referencing Category table)
+---------------------------------------------------------------------
+Category
+
+category_id (Primary Key)
+category_name
