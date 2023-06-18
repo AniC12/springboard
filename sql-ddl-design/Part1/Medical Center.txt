@@ -3,7 +3,6 @@ Doctor
 doctor_id (Primary Key)
 doctor_name
 specialization
-contact_info
 ---------------------------------------------------------------
 Patient
 

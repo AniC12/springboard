@@ -1,35 +1,35 @@
-Teams
+Team
 
 team_id (Primary Key)
 team_name
 -------------------------------------------------------
-Players
+Player
 
 player_id (Primary Key)
 player_name
-team_id (Foreign Key referencing Teams table)
+team_id (Foreign Key referencing Team table)
 -------------------------------------------------------
-Goals
+Goal
 
 goal_id (Primary Key)
-player_id (Foreign Key referencing Players table)
-match_id (Foreign Key referencing Matches table)
+player_id (Foreign Key referencing Player table)
+match_id (Foreign Key referencing Matche table)
 ---------------------------------------------------------
-Referees
+Referee
 
 referee_id (Primary Key)
 referee_name
 ----------------------------------------------------------
-Matches
+Match
 
 match_id (Primary Key)
-home_team_id (Foreign Key referencing Teams table)
-away_team_id (Foreign Key referencing Teams table)
-referee_id (Foreign Key referencing Referees table)
+home_team_id (Foreign Key referencing Team table)
+away_team_id (Foreign Key referencing Team table)
+referee_id (Foreign Key referencing Referee table)
 match_date
-season_id (Foreign Key referencing Seasons table)
+season_id (Foreign Key referencing Season table)
 ----------------------------------------------------------
-Seasons
+Season
 
 season_id (Primary Key)
 start_date
