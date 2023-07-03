@@ -116,18 +116,53 @@ class LinkedList {
       current = current.next;
       curIndex ++;
     }
+    throw new Error("The index is invalid");
   }
 
   /** removeAt(idx): return & remove item at idx, */
 
   removeAt(idx) {
+    if (this.head === null) {
+      throw new Error("The list is empty");
+    }
 
+    let removedItem = null;
+
+    if (idx === 0) {
+      removedItem = this.head.val;
+      this.head = this.head.next;
+      return removedItem;
+    }
+
+    let prev = this.head;
+    let current = this.head.next;
+    let curIndex = 1;
+    while (current !== null) {
+      if (curIndex === idx) {
+        removedItem = current.val;
+        prev.next = current.next;
+        return removedItem;
+      }
+    }
+
+    throw new Error("The index is invalid");
   }
 
   /** average(): return an average of all values in the list */
 
   average() {
-    
+    if (this.head === null) {
+      return "The list is empty"
+    }
+
+    let current = this.head;
+    let sum = 0;
+    while (current !== null) {
+      sum += current.val;
+      current = current.next;
+    }
+
+    return sum / this.length;
   }
 }
 
