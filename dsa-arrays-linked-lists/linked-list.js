@@ -32,6 +32,7 @@ class LinkedList {
     }
 
     this.tail = newNode;
+    this.length += 1;
   }
 
   /** unshift(val): add new value to start of list. */
@@ -41,6 +42,10 @@ class LinkedList {
 
     newNode.next = this.head;
     this.head = newNode;
+    if (this.length === 0) {
+      this.tail = newNode;
+    }
+    this.length += 1;
   }
 
   /** pop(): return & remove last item. */
@@ -50,18 +55,23 @@ class LinkedList {
       throw new Error("The list is empty");
     }
     let lastItem = this.tail.val;
-    this.tail = null;
+    this.removeAt(this.length - 1);
+    
     return lastItem;
   }
 
   /** shift(): return & remove first item. */
 
   shift() {
-    if (this.head === null) {
+    if (this.length === 0) {
       throw new Error("The list is empty");
     }
     let firstItem = this.head.val;
     this.head = this.head.next;
+    this.length -= 1;
+    if (this.length === 0) {
+      this.tail = null;
+    }
     return firstItem;
   }
 
@@ -111,6 +121,11 @@ class LinkedList {
         let newNode = new Node(val);
         newNode.next = current.next
         current.next = newNode;
+        this.length += 1;
+
+        if (idx === this.length - 1) {
+          this.tail = newNode;
+        }
         return;
       }
       current = current.next;
@@ -131,6 +146,11 @@ class LinkedList {
     if (idx === 0) {
       removedItem = this.head.val;
       this.head = this.head.next;
+      this.length -= 1;
+
+      if (this.length === 0) {
+        this.tail = null;
+      }
       return removedItem;
     }
 
@@ -141,6 +161,11 @@ class LinkedList {
       if (curIndex === idx) {
         removedItem = current.val;
         prev.next = current.next;
+        this.length -= 1;
+
+        if (this.length === curIndex) {
+          this.tail = prev;
+        }
         return removedItem;
       }
     }
@@ -152,7 +177,7 @@ class LinkedList {
 
   average() {
     if (this.head === null) {
-      return "The list is empty"
+      return 0;
     }
 
     let current = this.head;
