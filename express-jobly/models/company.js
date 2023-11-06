@@ -55,19 +55,18 @@ class Company {
    * */
 
   static async findAll(searchFilters = {}) {
-    const query = await db.query(
+    let query =
       `SELECT handle,
               name,
               description,
               num_employees AS "numEmployees",
               logo_url AS "logoUrl"
-           FROM companies`);
+           FROM companies`;
     const { name, minEmployees, maxEmployees } = searchFilters;
     let whereExpressions = [];
     let queryValues = [];
-
     if (minEmployees > maxEmployees) {
-      throw BadRequestError("minEmployees cannot be greater then maxEmployees");
+      throw new BadRequestError("minEmployees cannot be greater then maxEmployees");
     }
 
     if (minEmployees !== undefined) {
@@ -117,6 +116,16 @@ class Company {
 
     if (!company) throw new NotFoundError(`No company: ${handle}`);
 
+    const jobsRes = await db.query(
+      `SELECT id, title, salary, equity
+       FROM jobs
+       WHERE company_handle = $1
+       ORDER BY id`,
+      [handle],
+    );
+
+    company.jobs = jobsRes.rows;
+    
     return company;
   }
 
