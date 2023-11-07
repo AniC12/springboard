@@ -18,7 +18,7 @@ function Carousel({ photos, title }) {
 
   const currCard = photos[currCardIdx];
   const total = photos.length;
-
+ 
   //Increments currCardIdx state by 1
   function goForward() {
     setCurrCardIdx(currCardIdx + 1);
@@ -54,9 +54,5 @@ function Carousel({ photos, title }) {
     </div>
   );
 }
-
-Carousel.defaultProps = {
-  photos: [], title: ''
-};
 
 export default Carousel;

@@ -28,4 +28,5 @@ function Card({ caption, src, currNum, totalNum }) {
   );
 }
 
+
 export default Card;

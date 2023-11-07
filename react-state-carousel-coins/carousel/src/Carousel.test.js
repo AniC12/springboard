@@ -31,11 +31,13 @@ it("works when you click on the right arrow", function() {
 });
 
 it("renders without crashing", function() {
-  render(<Carousel />);
+  render(<Carousel 
+    photos={TEST_IMAGES}/>);
 });
 
 it("matches snapshot", function() {
-  const {asFragment} = render(<Carousel />);
+  const {asFragment} = render(<Carousel 
+    photos={TEST_IMAGES}/>);
   expect(asFragment()).toMatchSnapshot();
 });
 
