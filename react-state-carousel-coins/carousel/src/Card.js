@@ -15,7 +15,7 @@ import "./Card.css";
  * App --> Carousel --> Card
  */
 
- function Card({caption, src, currNum, totalNum}) {
+function Card({ caption, src, currNum, totalNum }) {
 
   return (
     <div className="Card">
