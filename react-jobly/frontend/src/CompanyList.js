@@ -5,7 +5,7 @@ import CompanyCard from "./CompanyCard";
 
 
 function CompanyList() {
-  const [companies, setCompanies] = useState(null);
+  const [companies, setCompanies] = useState([]);
 
   useEffect(function getCompaniesOnMount() {
     search();
@@ -16,12 +16,10 @@ function CompanyList() {
     setCompanies(companies);
   }
 
-  //if (!companies) return <LoadingSpinner />;
-
   return (
-      <div className="CompanyList col-md-8 offset-md-2">
+      <div>
         <SearchForm searchFor={search} />
-        {companies.length
+        {companies.length > 0
             ? (
                 <div className="CompanyList-list">
                   {companies.map(c => (
