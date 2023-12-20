@@ -5,7 +5,7 @@ function useLocalStorage(key, firstValue = null) {
 
   const [item, setItem] = useState(initialValue);
 
-  useEffect(function setKeyInLocalStorage() {
+  useEffect(() => {
     if (item === null) {
       localStorage.removeItem(key);
     } else {

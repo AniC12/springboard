@@ -5,17 +5,19 @@ import JobCardList from "./JobCardList";
 
 
 function JobList() {
-
     const [jobs, setJobs] = useState([]);
 
     useEffect(function getAllJobsOnMount() {
         search();
     }, []);
 
-    /** Triggered by search form submit; reloads jobs. */
     async function search(title) {
         let jobs = await JoblyApi.getJobs(title);
         setJobs(jobs);
+    }
+
+    if (!jobs) {
+        return <p>Loading &hellip;</p>;
     }
 
     return (

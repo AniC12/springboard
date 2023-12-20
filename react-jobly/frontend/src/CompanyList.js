@@ -16,26 +16,30 @@ function CompanyList() {
     setCompanies(companies);
   }
 
+  if (!companies) {
+    return <p>Loading &hellip;</p>;
+  }
+
   return (
-      <div>
-        <SearchForm searchFor={search} />
-        {companies.length > 0
-            ? (
-                <div className="CompanyList-list">
-                  {companies.map(c => (
-                      <CompanyCard
-                          key={c.handle}
-                          handle={c.handle}
-                          name={c.name}
-                          description={c.description}
-                          logoUrl={c.logoUrl}
-                      />
-                  ))}
-                </div>
-            ) : (
-                <p className="lead">Sorry, no results were found!</p>
-            )}
-      </div>
+    <div>
+      <SearchForm searchFor={search} />
+      {companies.length > 0
+        ? (
+          <div className="CompanyList-list">
+            {companies.map(c => (
+              <CompanyCard
+                key={c.handle}
+                handle={c.handle}
+                name={c.name}
+                description={c.description}
+                logoUrl={c.logoUrl}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="lead">Sorry, no results were found!</p>
+        )}
+    </div>
   );
 }
 

@@ -37,12 +37,12 @@ function LoginForm({ login }) {
                 <div className="form-group">
                   <label>Username</label>
                   <input
-                      name="username"
-                      className="form-control"
-                      value={formData.username}
-                      onChange={handleChange}
-                      autoComplete="username"
-                      required
+                    name="username"
+                    className="form-control"
+                    value={formData.username}
+                    onChange={handleChange}
+                    autoComplete="username"
+                    required
                   />
                 </div>
                 <div className="form-group">

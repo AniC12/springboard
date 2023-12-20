@@ -7,7 +7,7 @@ function SearchForm({ searchFor }) {
     function handleSubmit(evt) {
         evt.preventDefault();
         searchFor(searchTerm.trim() || undefined);
-        setSearchTerm(searchTerm.trim());
+        setSearchTerm("");
     }
 
     function handleChange(evt) {
